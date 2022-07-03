@@ -1,0 +1,44 @@
+@import "../fundation/variable";
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px !important;
+}
+
+input,
+select {
+    border:none;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px !important;
+    cursor: pointer;
+  }
+
+  textarea {
+    border: none;
+    padding: 10px !important;
+    resize: none;
+    cursor: pointer;
+}
+
+button {
+    border: none;
+}
+
+main {
+    display: flex !important;
+}
+
+table th {
+    font-weight: normal;
+}
+
+.container {
+    height: calc(100vh - 70px);
+    width: calc(100vw - $sidebar-width);
+    padding: 20px;
+    overflow: scroll;
+}

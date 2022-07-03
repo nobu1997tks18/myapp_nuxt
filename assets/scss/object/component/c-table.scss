@@ -1,0 +1,14 @@
+.c-default-table{
+    th,
+    td {
+        padding: 5px 10px;
+        vertical-align: middle !important;
+    }
+    th {
+        background-color: $main-color;
+        color: #ffffff;
+    }
+    &__button-td {
+        width: 180px;
+    }
+}

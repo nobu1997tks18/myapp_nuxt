@@ -1,0 +1,44 @@
+.l-input-column-block {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    min-width: 150px;
+    &--textarea{
+        width: 100%;
+        padding: 2px;
+    }
+}
+
+.l-input-flex-block {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    min-width: 150px;
+}
+
+.l-checkbox-block {
+    display: flex;
+    width: 40%;
+    min-width: 150px;
+    align-items: center;
+}
+
+.l-button-center-block {
+    text-align: center;
+}
+
+.l-button-right-block {
+    text-align: right;
+}
+
+.l-search-block {
+    border: 1px solid #eeeeee;
+    padding: 20px;
+    box-shadow: $block-box-shadow;
+}
+
+.l-search-input-block {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
