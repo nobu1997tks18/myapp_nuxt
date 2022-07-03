@@ -50,7 +50,7 @@ const nuxtConfig = defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "@/assets/scss/fundation/_variable.scss";',
+          additionalData: '@import "@/assets/scss/fundation/_variable.scss";@import "@/assets/scss/fundation/_mixin.scss";',
         },
       },
     },
