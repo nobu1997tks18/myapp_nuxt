@@ -1,0 +1,15 @@
+.c-tab-block{
+    display: flex;
+    justify-content: center;
+}
+
+.c-page-tab{
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #eeeeee;
+    background-color: #eeeeee;
+    &--selected{
+        background-color: #ffffff;
+    }
+}

@@ -1,0 +1,17 @@
+.c-selected-item {
+    display: flex;
+    background-color: #dddddd;
+    padding: 5px 10px;
+    border-radius: 25px;
+    width: fit-content;
+    &__delete {
+        background-color: #ffffff;
+        border-radius: 50%;
+        height: 15px;
+        line-height: 15px;
+        text-align: center;
+        width: 15px;
+        display: inline-block;
+        cursor: pointer;
+    }
+}
