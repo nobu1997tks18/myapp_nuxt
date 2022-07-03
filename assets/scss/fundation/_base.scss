@@ -35,10 +35,3 @@ main {
 table th {
     font-weight: normal;
 }
-
-.container {
-    height: calc(100vh - 70px);
-    width: calc(100vw - $sidebar-width);
-    padding: 20px;
-    overflow: scroll;
-}

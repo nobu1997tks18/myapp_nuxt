@@ -1,0 +1,25 @@
+.default-table {
+  font-size: 0.8rem;
+  thead {
+    background-color: $main-color;
+    color: #ffffff;
+    th {
+      padding: 10px 5px;
+    }
+    .button-th{
+      width: 75px;
+    }
+  }
+  tbody {
+    tr {
+      border-bottom: 1px dotted #000000;
+      td {
+        padding: 1px;
+      }
+      .button-td{
+        text-align: center;
+      }
+    }
+  }
+  width: 100%;
+}
