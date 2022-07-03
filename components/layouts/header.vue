@@ -6,17 +6,17 @@
 
 <style lang="scss" scoped>
 .l-header {
-  background-color: $main-color;
-  border-bottom: 5px solid $sub-color;
+  height: $header-height;
+  width: 100vw;
+  position: fixed;
   display: flex;
   justify-content: space-between;
-  height: $header-height;
-  line-height: 50px;
-  width: 100vw;
-  padding: 5px 20px;
+  line-height:$header-height;
   box-sizing: border-box;
+  padding: 0 20px;
+  background-color: $main-color;
   color: #ffffff;
-  position: fixed;
+  border-bottom: 5px solid $sub-color;
   h2 {
     width: 100%;
     font-weight: bold;

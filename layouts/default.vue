@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <Sidebar />
+    <Footer />
     <main>
       <nuxtPage />
     </main>
@@ -9,11 +9,11 @@
 </template>
 <script>
 import Header from '@/components/layouts/header.vue'
-import Sidebar from '@/components/layouts/sidebar.vue'
+import Footer from '@/components/layouts/footer.vue'
 export default {
   components: {
     Header,
-    Sidebar
+    Footer
   }
 }
 </script>
@@ -23,9 +23,9 @@ main {
   min-height: 100vh;
   min-width: 100vw;
   padding-top: $header-height + 30px;
+  padding-bottom: $header-height + 30px;
   padding-right: 30px;
-  padding-bottom: 30px;
-  padding-left: $sidebar-width + 30px;
+  padding-left: 30px;
   overflow: scroll;
 }
 </style>
