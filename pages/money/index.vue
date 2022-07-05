@@ -27,7 +27,7 @@
       </div>
       <div class="money__left__bottom">
         <div class="money__left__list">
-          <table class="default-table">
+          <table class="l-default-table">
             <thead>
               <tr>
                 <th>日時</th>
@@ -38,22 +38,29 @@
                 <th>内訳</th>
               </tr>
             </thead>
-            <tbody v-for="n of expenceListLength" :key="n">
+            <tbody v-for="expence in expenceData">
               <tr>
-                <td><input type="date" value="2022-06-30" /></td>
-                <td><input type="text" value="ローソン" /></td>
-                <td><input type="number" value="20000" /></td>
+                <td><input type="date" v-model="expence.date" /></td>
+                <td><input type="text" v-model="expence.place" /></td>
+                <td><input type="number" v-model="expence.price" /></td>
                 <td>
-                  <select id="" name="">
-                    <option>ビューカード</option>
+                  <select id="" name="" v-model="expence.payment_method">
+                    <option value="1">ビューカード</option>
+                    <option value="2">三井住友</option>
+                    <option value="3">現金</option>
                   </select>
                 </td>
                 <td>
-                  <select id="" name="">
-                    <option>個人</option>
+                  <select id="" name="" v-model="expence.payment_type">
+                    <option value="1">個人</option>
+                    <option value="2">家庭</option>
+                    <option value="3">その他</option>
                   </select>
                 </td>
-                <td><button class="c-list-button">内訳</button></td>
+                <td>
+                  <button data-id={{expence.id}} class="c-list-button money__left__list__detail">内訳</button>
+                  <button data-id={{expence.id}} class="c-list-button money__left__list__delete">削除</button>
+                  </td>
               </tr>
             </tbody>
           </table>
@@ -77,7 +84,7 @@
       <div class="money__right__list">
         <div class="money__right__toggle">
           <p class="money__right__toggle__title">固定費</p>
-          <table class="default-table">
+          <table class="l-default-table">
             <thead>
               <tr>
                 <th>項目名</th>
@@ -91,14 +98,14 @@
                 <td><input type="text" value="定期"></td>
                 <td><select><option value="個人">個人</option></select></td>
                 <td><select><option value="交通費">交通費</option></select></td>
-                <td class="button-td"><button class="c-list-button">削除</button></td>
+                <td class="button-td"><button class="c-list-button money__right__toggle__button">削除</button></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="money__right__toggle">
           <p class="money__right__toggle__title">支払方法</p>
-          <table class="default-table">
+          <table class="l-default-table">
             <thead>
               <tr>
                 <th>項目名</th>
@@ -110,14 +117,14 @@
               <tr>
                 <td><input type="text" value="ビューカード"></td>
                 <td><select><option value="交通費">翌月</option></select></td>
-                <td class="button-td"><button class="c-list-button">削除</button></td>
+                <td class="button-td"><button class="c-list-button money__right__toggle__button">削除</button></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="money__right__toggle">
           <p class="money__right__toggle__title">支払分類</p>
-          <table class="default-table">
+          <table class="l-default-table">
             <thead>
               <tr>
                 <th>項目名</th>
@@ -127,14 +134,14 @@
             <tbody>
               <tr>
                 <td><input type="text" value="個人"></td>
-                <td class="button-td"><button class="c-list-button">削除</button></td>
+                <td class="button-td"><button class="c-list-button money__right__toggle__button">削除</button></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="money__right__toggle">
           <p class="money__right__toggle__title">商品分類</p>
-          <table class="default-table">
+          <table class="l-default-table">
             <thead>
               <tr>
                 <th>項目名</th>
@@ -146,7 +153,7 @@
               <tr>
                 <td><input type="text" value="食費"></td>
                 <td><input type="color" value="#000000"></td>
-                <td class="button-td"><button class="c-list-button">削除</button></td>
+                <td class="button-td"><button class="c-list-button money__right__toggle__button">削除</button></td>
               </tr>
             </tbody>
           </table>
@@ -167,8 +174,23 @@ export default {
     return {
       month: [ '1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
       data1:[20000],
-      data2: [ 20000 ],
-      expenceListLength:5,
+      data2: [20000],
+      expenceData: [
+        {
+          id: 1,
+          date: "2022-07-01",
+          place: "ローソン",
+          price: 20000,
+          payment_method: 1,
+          payment_type: 1
+        }
+      ],
+      fixedExpenceData: [
+        {
+          id: 1,
+          title:"定期代",
+        }
+      ]
     }
   },
   computed: {
@@ -194,7 +216,7 @@ export default {
   },
   methods: {
     addExpenceListBlock: function (){
-      this.expenceListLength++;
+      this.expenceData.push({ id:"",date: "", place: "", "price": 0,"payment_method": 0, "payment_type": 0})
     }
   }
 }
@@ -282,6 +304,14 @@ export default {
       @include mq(sp) {
         overflow: scroll;
       }
+      &__delete{
+        background-color: $sub-color;
+        color: #ffffff;
+      }
+      &__detail{
+        background-color: $main-color;
+        color: #ffffff;
+      }
       &__add-button-block {
         display: flex;
         justify-content: flex-end;
@@ -317,6 +347,10 @@ export default {
       margin: 15px 0;
       @include mq(sp) {
         overflow: scroll;
+      }
+      &__button{
+        background-color: $sub-color;
+        color: #fff;
       }
       &__title{
         padding: 10px 20px;
